@@ -1,0 +1,21 @@
+name: Build
+
+# Trigger Rules:
+# - run on all pull requests
+
+on:
+  pull_request:
+    branches:
+      - "**"
+
+env:
+  COMMIT_SHA: ${{ github.sha }}
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Show Output
+        run: echo "Runs on all pull pequests"

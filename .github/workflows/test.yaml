@@ -1,0 +1,21 @@
+name: Deploy
+
+# Trigger Rules:
+# - only run on closed pull requests to master
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - master
+
+jobs:
+  publish:
+    name: Pubish
+    needs: test
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Show Output
+        run: echo ${{ steps.deploy.outputs.url }}
