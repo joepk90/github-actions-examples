@@ -8,13 +8,13 @@ on:
     types:
       - closed
     branches:
-      - master
+      - main
 
 jobs:
   publish:
     name: Pubish
     needs: test
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Show Output
