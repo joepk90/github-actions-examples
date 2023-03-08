@@ -1,0 +1,27 @@
+name: Deploy
+
+# Trigger Rules:
+# - only run on closed pushes to the branch depedancies
+
+on:
+  push:
+    branches:
+      - "dependancies"
+
+jobs:
+  first:
+    name: First Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Output
+        run: echo "First has completed"
+
+  second:
+    name: Second Job
+    needs: first
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Output
+        run: echo "Reqires first job to complete. Second job has now completed"
