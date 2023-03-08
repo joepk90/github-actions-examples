@@ -6,12 +6,13 @@ name: Test (Reusable)
 on:
   workflow_call:
 
+# Secrets are inherited from the parent workflow
 env:
   EXAMPLE_SECRET: EXAMPLE_SECRET
 
 jobs:
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
