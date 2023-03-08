@@ -1,4 +1,6 @@
-name: Deploy
+name: Depenancies
+
+# Workflow to test/document dependancy configurations
 
 # Trigger Rules:
 # - only run on closed pushes to the branch depedancies
