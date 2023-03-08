@@ -17,4 +17,4 @@ jobs:
 
     steps:
       - name: Show Output
-        run: echo "Reqires first job to complete. Second job has now completed"
+        run: echo "Deployment Workflow running - this workflow should only run when a PR is merged (closed) into the main branch"
