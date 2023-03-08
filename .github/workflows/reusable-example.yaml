@@ -14,5 +14,5 @@ env:
 jobs:
   reusable:
     name: Test Workflow (Reusable)
-    uses: "joepk90/github-actions-examples/.github/workflows/0-reusable-workflow.yaml@master"
+    uses: "joepk90/github-actions-examples/.github/workflows/0-reusable-workflow.yaml@main"
     secrets: inherit
