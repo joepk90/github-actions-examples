@@ -1,0 +1,15 @@
+name: Conditionals
+
+on:
+  push:
+    branches:
+      - conditionals
+
+jobs:
+  print:
+    name: Dump Github Context
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' # untested
+    steps:
+      - name: Print Github Context using toJson command
+        run: echo "${{ toJson(github) }}"
