@@ -2,17 +2,38 @@ name: Test
 
 # Trigger Rules:
 # - run on all pull requests
+# - run on push to branch: reusable
 
 on:
   pull_request:
     branches:
       - "**"
+  push:
+    branches:
+      - "reusable"
 
 env:
   EXAMPLE_SECRET: EXAMPLE_SECRET
+  # WORKFLOW_PATH: echo "${{ github.repository }}/.github/workflows/0-reusable-worflow.yaml@main
 
 jobs:
   reusable:
-    name: Test Workflow (Reusable)
+    name: Reusable Workflow Example
     uses: "joepk90/github-actions-examples/.github/workflows/0-reusable-workflow.yaml@main"
     secrets: inherit
+
+  # ERROR: dynamic variables don't seem to be accepted
+  # dynamic:
+  #   name: Reusable Workflow using Dynamic Path
+  #   uses: "${{ github.repository }}/.github/workflows/0-reusable-worflow.yaml@main" # not working
+  #   uses: "echo ${{WORKFLOW_PATH}}" # not working
+  #   secrets: inherit
+
+  # ERROR: reusable workflows should be referenced at the top-level `jobs.*.uses' key, not within steps
+  # reusable-steps:
+  #   name: Reusable Workflow using Steps
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Run Reusable Workflow
+  #       uses: "joepk90/github-actions-examples/.github/workflows/0-reusable-workflow.yaml@main"
