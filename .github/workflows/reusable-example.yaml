@@ -15,6 +15,7 @@ on:
 env:
   EXAMPLE_SECRET: EXAMPLE_SECRET
   # WORKFLOW_PATH: echo "${{ github.repository }}/.github/workflows/0-reusable-worflow.yaml@main
+  WORKFLOW_PATH_UNSET: ""
 
 jobs:
   reusable:
@@ -27,3 +28,15 @@ jobs:
   # uses: "${{ github.repository }}/.github/workflows/0-reusable-worflow.yaml@main" # not working
   # uses: "echo ${{WORKFLOW_PATH}}" # not working
   # secrets: inherit
+
+  dynamic-env:
+    name: Reusable Workflow using Dynamic Path
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Variables workflow path
+        run: echo "WORKFLOW_PATH_UNSET=${{ github.repository }}" >> $WORKFLOW_PATH_UNSET
+
+      - name: Run Reusable Workflow
+        uses: "echo ${{WORKFLOW_PATH_UNSET}}" # not working
+
