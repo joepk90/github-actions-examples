@@ -1,0 +1,25 @@
+name: K8S Deployment
+
+# Trigger Rules:
+# - only run on push to kubernetes-deployment branch
+
+on:
+  push:
+    branches:
+      - "kubernetes-deployment"
+
+env:
+  K8S_DEV_TOKEN: ${{ secrets.K8S_DEV_TOKEN }}
+  COMMIT_SHA: ${{ github.sha }}
+
+jobs:
+  k8s-deployment:
+    name: K8S Deployment
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy Deactivated
+        run: echo "Enable next step + add secrets for this to work"
+
+      # - name: Deploy to Kubernetes
+      #   run: make ci-kubernetes-deploy
