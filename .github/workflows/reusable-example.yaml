@@ -22,8 +22,8 @@ jobs:
     uses: "joepk90/github-actions-examples/.github/workflows/0-reusable-workflow.yaml@main"
     secrets: inherit
 
-  dynamic:
-    name: Reusable Workflow using Dynamic Path
-    uses: "${{ github.repository }}/.github/workflows/0-reusable-worflow.yaml@main"
-    # uses: "echo ${{WORKFLOW_PATH}}" # not working
-    secrets: inherit
+  # dynamic:
+  #   name: Reusable Workflow using Dynamic Path
+  # uses: "${{ github.repository }}/.github/workflows/0-reusable-worflow.yaml@main" # not working
+  # uses: "echo ${{WORKFLOW_PATH}}" # not working
+  # secrets: inherit
