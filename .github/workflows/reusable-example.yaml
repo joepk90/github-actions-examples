@@ -15,7 +15,6 @@ on:
 env:
   EXAMPLE_SECRET: EXAMPLE_SECRET
   # WORKFLOW_PATH: echo "${{ github.repository }}/.github/workflows/0-reusable-worflow.yaml@main
-  WORKFLOW_PATH_UNSET: ""
 
 jobs:
   reusable:
@@ -23,16 +22,18 @@ jobs:
     uses: "joepk90/github-actions-examples/.github/workflows/0-reusable-workflow.yaml@main"
     secrets: inherit
 
+  # ERROR: dynamic variables don't seem to be accepted
   # dynamic:
   #   name: Reusable Workflow using Dynamic Path
-  # uses: "${{ github.repository }}/.github/workflows/0-reusable-worflow.yaml@main" # not working
-  # uses: "echo ${{WORKFLOW_PATH}}" # not working
-  # secrets: inherit
+  #   uses: "${{ github.repository }}/.github/workflows/0-reusable-worflow.yaml@main" # not working
+  #   uses: "echo ${{WORKFLOW_PATH}}" # not working
+  #   secrets: inherit
 
-  dynamic-env:
-    name: Reusable Workflow using Dynamic Path
-    runs-on: ubuntu-latest
+  # ERROR: reusable workflows should be referenced at the top-level `jobs.*.uses' key, not within steps
+  # reusable-steps:
+  #   name: Reusable Workflow using Steps
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Run Reusable Workflow
-        uses: "joepk90/github-actions-examples/.github/workflows/0-reusable-workflow.yaml@main"
+  #   steps:
+  #     - name: Run Reusable Workflow
+  #       uses: "joepk90/github-actions-examples/.github/workflows/0-reusable-workflow.yaml@main"
