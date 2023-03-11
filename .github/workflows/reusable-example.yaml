@@ -35,7 +35,8 @@ jobs:
 
     steps:
       - name: Variables workflow path
-        run: echo "WORKFLOW_PATH_UNSET=${{ github.repository }}" >> $WORKFLOW_PATH_UNSET
+        # run: echo "WORKFLOW_PATH_UNSET=${{ github.repository }}" >> $WORKFLOW_PATH_UNSET
+        run: echo "WORKFLOW_PATH_UNSET=joepk90/github-actions-examples/.github/workflows/0-reusable-workflow.yaml@main" >> $WORKFLOW_PATH_UNSET
 
       - name: Run Reusable Workflow
         uses: "echo ${{WORKFLOW_PATH_UNSET}}" # not working
