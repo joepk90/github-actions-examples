@@ -15,3 +15,6 @@ jobs:
     steps:
       - name: Print Github Context using toJson command
         run: echo "${{ toJson(github) }}"
+
+      - name: Print Repository name
+        run: echo "${{ github.event.repository.name }}"
