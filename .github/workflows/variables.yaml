@@ -1,0 +1,17 @@
+name: Variables
+
+on:
+  push:
+    branches:
+      - variables
+
+jobs:
+  print:
+    name: Dump Github Using Environment Variable
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_CONTEXT: ${{ toJson(github) }}
+
+    steps:
+      - name: Show Output
+        run: echo "$GITHUB_CONTEXT"
