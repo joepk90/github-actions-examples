@@ -19,5 +19,5 @@ jobs:
       - name: Print Repository name
         run: echo "${{ github.event.repository.name }}"
 
-      - name: Print Repository (user/repo/)
+      - name: Print Repository (user/repo)
         run: echo "${{ github.repository }}"
