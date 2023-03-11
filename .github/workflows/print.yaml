@@ -1,8 +1,5 @@
 name: Print
 
-# Trigger Rules:
-# - only run on closed pull requests to master
-
 on:
   push:
     branches:
